@@ -1,6 +1,7 @@
 
 package br.edu.ifsp.pep.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
@@ -10,10 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "pessoa")
-public class Pessoa {
+@Table(name = "pessoa", uniqueConstraints = {@UniqueConstraint(name = "uniquelogradouroandnumero",columnNames = {"logradouro","numero"}),
+@UniqueConstraint(name = "uniqueEmail",columnNames = {"email"})})
+public class Pessoa implements Serializable {
     @Id  
     @GeneratedValue(strategy = GenerationType.IDENTITY)// definir alto increment
     @Column(name = "codigo", nullable = false)
@@ -28,10 +31,44 @@ public class Pessoa {
     @Column(name = "data_nascimento", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)// define o que vai ser armazenado da data
     private Date dataNascimento;
+    
+    @Column(name = "email" , nullable = false)
+    private String email;
+    
+    @Column(name = "logradouro" , nullable = false)
+    private String logradouro;
+    
+    @Column(name = "numero" , nullable = false)
+    private Integer numero;
+    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
    
 
     public Pessoa() {
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
     

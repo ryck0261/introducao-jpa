@@ -5,7 +5,9 @@
         <group>
             <file>file:/Q:/ryck/FP1C4/src/Principal.java</file>
             <file>file:/Q:/ryck/FP1C4/src/META-INF/persistence.xml</file>
+            <file>file:/Q:/ryck/FP1C4/src/br/edu/ifsp/pep/modelo/produto.java</file>
             <file>file:/Q:/ryck/FP1C4/src/br/edu/ifsp/pep/modelo/Pessoa.java</file>
+            <file>file:/Q:/ryck/FP1C4/src/br/edu/ifsp/pep/modelo/Categoria.java</file>
         </group>
     </open-files>
 </project-private>
