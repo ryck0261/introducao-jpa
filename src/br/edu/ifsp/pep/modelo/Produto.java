@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "produto")
-public class produto implements Serializable {
+public class Produto implements Serializable {
     
      @Id  
     @GeneratedValue(strategy = GenerationType.IDENTITY)// definir alto increment
@@ -37,6 +37,14 @@ public class produto implements Serializable {
     @JoinColumn(name = "categoria_id", nullable = false)
     @ManyToOne
     private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     
 
     public int getId() {
