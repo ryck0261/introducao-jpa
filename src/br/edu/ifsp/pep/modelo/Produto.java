@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.edu.ifsp.pep.modelo;
 
 import java.io.Serializable;
@@ -15,43 +11,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ *
+ * @author aluno
+ */
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable {
-    
-     @Id  
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// definir alto increment
-    @Column(name = "id", nullable = false)
-    private int id;
-    
-    @Column(name = "descricao", length = 50,nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "descricao", length = 50, nullable = false)
     private String descricao;
-    
     @Column(name = "quantidade", nullable = false)
-    private int quantidade;
-    
-    @Column(name = "preco", precision = 8, scale = 2,  nullable = false)
+    private Integer quantidade;
+    @Column(name = "preco", precision = 8, scale = 2, nullable = false)
     private BigDecimal preco;
     
     @JoinColumn(name = "categoria_id", nullable = false)
     @ManyToOne
     private Categoria categoria;
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
     
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -63,11 +49,11 @@ public class Produto implements Serializable {
         this.descricao = descricao;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -78,6 +64,13 @@ public class Produto implements Serializable {
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
-    
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     
 }
